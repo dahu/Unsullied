@@ -56,7 +56,7 @@ function! Unsullied(...)
   if b:unsullied_height > 0
     augroup Unsullied
       au!
-      au CursorHold * call s:update_page_marks()
+      au CursorMoved,CursorHold * call s:update_page_marks()
     augroup END
     call s:update_page_marks()
     let b:unsullied_1 = matchadd('Unsullied', '\%''' . g:unsullied_window_marks[0] . '\_.*\ze\(.*\n\)\{' . b:unsullied_height . '}.*\%#')

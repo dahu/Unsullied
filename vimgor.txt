@@ -1,0 +1,1 @@
+unsullied is <reply>Highlight your attention ::: Unsullied will colour only a few lines surrounding your cursor to reduce distraction from distant glaring baubles, while still providing the benefits of rapid and accurate syntax recognition where it counts ::: https://github.com/dahu/Unsullied .

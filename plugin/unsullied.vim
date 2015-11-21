@@ -45,14 +45,21 @@ endfunction
 function! Unsullied(...)
   let b:unsullied_height = a:0 ? a:1 : g:unsullied_height
   try
+    silent hi Unsullied
+  catch /^Vim\%((\a\+)\)\=:E411/
     hi Unsullied ctermfg=250 ctermbg=235 guifg=#bcbcbc guibg=#262626
+  endtry
+
+  try
     call matchdelete(b:unsullied_1)
     call matchdelete(b:unsullied_2)
-    augroup Unsullied
-      au!
-    augroup END
   catch
   endtry
+
+  augroup Unsullied
+    au!
+  augroup END
+
   if b:unsullied_height > 0
     augroup Unsullied
       au!
@@ -65,7 +72,7 @@ function! Unsullied(...)
 endfunction
 
 " Commands: {{{1
-command! -bang -nargs=? Unsullied call Unsullied(<args>)
+command! -bar -bang -nargs=? Unsullied call call('Unsullied', <bang>0 ? [0] : [<args>] )
 
 " Teardown: {{{1
 " reset &cpo back to users setting

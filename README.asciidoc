@@ -18,12 +18,22 @@ will show 5 lines above and 5 lines below (both inclusive of the cursor
 line) as normally highlighted, while disabling highlighting for all
 other lines on the window.
 
+Disable Unsullied with:
+
+  :Unsullied!
+
 === Options
 
 Change the following options as desired. The default values for each are as shown.
 
   let g:unsullied_window_marks = ['t', 'b']
   let g:unsullied_height = 4
+
+The unhighlighted text uses the `Unsullied` highlight group which by default is defined to be:
+
+  hi Unsullied ctermfg=250 ctermbg=235 guifg=#bcbcbc guibg=#262626
+
+You can override this in your `vimrc` as desired.
 
 === Bugs
 

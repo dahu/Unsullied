@@ -1,0 +1,79 @@
+*unsullied.txt*	Syntax highlighting only few lines surrounding cursor
+
+
+			VIM REFERENCE MANUAL	by Barry Arthur
+
+
+Help on using unsullied                                        *unsullied*
+
+1. Introduction				|unsullied-intro|
+2. Configuration			|unsullied-configuration|
+3. Highlighting				|unsullied-highlighting|
+
+==============================================================================
+ 1. INTRODUCTION                                         *unsullied-intro*
+
+Highlight your attention.
+
+Unsullied colours only a few lines surrounding your cursor to reduce
+distraction from distant glaring baubles, while still providing the
+benefits of rapid and accurate syntax recognition where it counts.
+
+The command:>
+  :Unsullied
+<
+
+Will use the default window height of 4 lines above and below the cursor
+(both inclusive of cursor line). This default is configurable with the
+|g:unsullied_height| variable.
+
+Alternatively, specify an explicit window height as an argument:>
+  :Unsullied 10
+<
+
+Disable Unsullied with the command:>
+  :Unsullied!
+<
+
+==============================================================================
+ 2. CONFIGURATION                                *unsullied-configuration*
+
+Unsullied uses several variables to control its default behaviour:
+
+|'g:unsullied_window_marks'|		Which |marks| taken by Unsullied.
+|'g:unsullied_height'|			Default colour-highlighted window.
+
+------------------------------------------------------------------------------
+                                              *'g:unsullied_window_marks'*
+
+Values: list                                                                 ~
+Default: ['t', 'b']                                                          ~
+
+This variable determines which |marks| Unsullied uses for the top and
+bottom of the window, respectively. These marks are used to make Unsullied
+more efficient by colouring only the visible window instead of the whole
+buffer. If you or a plugin relies on the default marks, `t` and `b`, then
+you can override Unsullied's mark choice with this variable.
+
+------------------------------------------------------------------------------
+                                                    *'g:unsullied_height'*
+
+Values: numeric                                                              ~
+Default: 4                                                                   ~
+
+This variable determines the default window height for the
+colour-highlighted lines when the user calls the `:Unsullied` command
+without specifying an explicit size.
+
+
+==============================================================================
+ 3. HIGHLIGHTING                                  *unsullied-highlighting*
+
+By default Unsullied colours text outside of the colour-window using:>
+    hi Unsullied ctermfg=250 ctermbg=235 guifg=#bcbcbc guibg=#262626
+<
+
+Override this in your vimrc as desired.
+
+Template From: https://github.com/dahu/Area-41/
+ vim:tw=78:ts=8:ft=help:norl:

@@ -51,8 +51,8 @@ function! Unsullied(...)
   endtry
 
   try
-    call matchdelete(b:unsullied_1)
-    call matchdelete(b:unsullied_2)
+    call matchdelete(w:unsullied_1)
+    call matchdelete(w:unsullied_2)
   catch
   endtry
 
@@ -66,8 +66,8 @@ function! Unsullied(...)
       au CursorMoved,CursorHold * call s:update_page_marks()
     augroup END
     call s:update_page_marks()
-    let b:unsullied_1 = matchadd('Unsullied', '\%''' . g:unsullied_window_marks[0] . '\_.*\ze\(.*\n\)\{' . b:unsullied_height . '}.*\%#')
-    let b:unsullied_2 = matchadd('Unsullied', '\%#\(.*\n\)\{' . b:unsullied_height . '}\zs\_.*\%''' . g:unsullied_window_marks[1] . '.*')
+    let w:unsullied_1 = matchadd('Unsullied', '\%''' . g:unsullied_window_marks[0] . '\_.*\ze\(.*\n\)\{' . b:unsullied_height . '}.*\%#')
+    let w:unsullied_2 = matchadd('Unsullied', '\%#\(.*\n\)\{' . b:unsullied_height . '}\zs\_.*\%''' . g:unsullied_window_marks[1] . '.*')
   endif
 endfunction
 
